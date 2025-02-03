@@ -1,5 +1,5 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 .overlay {
     position: absolute;
@@ -35,7 +35,7 @@ header {
     font-weight: bold;
     font-size: 1.5rem;
     white-space: nowrap;
-    color:rgb(229, 135, 3);
+    color:rgb(139, 81, 0);
     text-shadow:
         -1px -1px 0 #fec98d,
         1px -1px 0 #ffffff,
@@ -55,7 +55,7 @@ header {
     transition: color 0.3s ease, background-color 0.3s ease;
     border-radius: 12px;
     padding-right: 20px;
-    margin-left: 50px;
+    margin-left: 30px;
 }
 .navbar-toggler{
     background-color: rgba(216, 179, 152, 0.5);
@@ -63,10 +63,10 @@ header {
 }
 .navbar-toggler-icon {
     width: 18px;
-    height: 22px;
+    height: 20px;
 }
 .navbar-brand:hover {
-    color: rgba(139, 69, 19);
+    color: rgb(62, 31, 9);
 }
 .navbar-nav .nav-link:hover {
     color: white;
@@ -76,10 +76,10 @@ header {
     color:rgb(75, 39, 0) !important;
     border-radius: 12px;
     text-shadow:
-        -1px -1px 0 #ffffff,
-        1px -1px 0 #ffffff,
-        -1px 1px 0 #ffffff,
-        1px 1px 0 #ffffff;
+        -1px -1px 0 #b8b6b5,
+        1px -1px 0 #b8b6b5,
+        -1px 1px 0 #b8b6b5,
+        1px 1px 0 #b8b6b5;
 }
 @media (max-width: 991px) {
     .navbar-brand {
@@ -170,6 +170,33 @@ header {
     }
 }
 /* index end */
+/* contact */
+#contact {
+    max-width: 700px;
+    margin: auto;
+    padding-top: 90px;
+}
+.card {
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin: 15px;
+}
+.form-control {
+    border-radius: 8px;
+}
+.btn-warning {
+    background-color: #ff9800;
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.btn-warning:hover {
+    background-color: #e68900;
+}
+/* contact end */
 /* faqs */
 .faq-title {
     font-size: 2rem;

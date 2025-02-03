@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bread & Basket - About</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .about-section {
             margin-top: 90px;
@@ -58,9 +57,7 @@
                 <p>Welcome to Bread & Basket Minimart! We are dedicated to providing the finest and freshest bread, pastries, and baked goods made with love. Our bakery believes in using only the highest quality ingredients to bring you delicious and wholesome products that you can enjoy every day.</p>
                 <p>Our team is passionate about baking and creating the best bakery delights that bring comfort and joy. Whether you are here for a quick snack or to pick up freshly baked bread, we have something for everyone!</p>
             </div>
-
             <img src="Assets/Images/about-banner.jpg" alt="About Us" class="about-img">
-
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <!-- Team Member 1 -->
                 <div class="col team-member">
@@ -83,9 +80,6 @@
             </div>
         </div>
     </section>
-
     <?php include('footer.php'); ?>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
