@@ -92,6 +92,3 @@
     </main>
 </body>
 </html>
-<style>
-    
-</style>

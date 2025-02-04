@@ -108,28 +108,29 @@
             </div>
             <!-- Mobile View (Offcanvas) -->
             <div class="mobile-message col-md-5">
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasReply">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title">Send a Message</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <form action="../Manage/Mail/send-mail.php" method="POST">
-                            <div class="mb-3">
-                                <label class="form-label">To:</label>
-                                <input type="email" class="form-control" id="replyToEmailMobile" name="email" placeholder="Recipient Email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Subject:</label>
-                                <input type="text" class="form-control" name="subject" placeholder="Enter Subject" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Message:</label>
-                                <textarea class="form-control" name="message" rows="4" placeholder="Write your message here..." required></textarea>
-                            </div>
-                            <input type="hidden" id="replyToIdMobile" name="reply_id">
-                            <button type="submit" class="btn btn-success w-100">Send</button>
-                        </form>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasReply" data-bs-scroll="true">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title">Send a Message</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <form action="../Manage/Mail/send-mail.php" method="POST">
+                                <div class="mb-3">
+                                    <label class="form-label">To:</label>
+                                    <input type="email" class="form-control" id="replyToEmailMobile" name="email" placeholder="Recipient Email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Subject:</label>
+                                    <input type="text" class="form-control" name="subject" placeholder="Enter Subject" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Message:</label>
+                                    <textarea class="form-control" name="message" rows="4" placeholder="Write your message here..." required></textarea>
+                                </div>
+                                <input type="hidden" id="replyToIdMobile" name="reply_id">
+                                <button type="submit" class="btn btn-success w-100">Send</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -147,87 +148,20 @@
             if (window.innerWidth >= 769 && replyForm) {
                 let offset = 150; 
                 let position = replyForm.getBoundingClientRect().top + window.scrollY - offset;
-                window.scrollTo({ top: position, behavior: 'smooth' });
+                window.scrollTo({ top: position });
             }
         }
+        document.addEventListener('DOMContentLoaded', function () {
+            let offcanvasReply = document.getElementById('offcanvasReply');
+
+            offcanvasReply.addEventListener('shown.bs.offcanvas', function () {
+                document.body.classList.add('offcanvas-open');
+            });
+
+            offcanvasReply.addEventListener('hidden.bs.offcanvas', function () {
+                document.body.classList.remove('offcanvas-open');
+            });
+        });
     </script>
 </body>
 </html>
-<style>
-/* Admin Mailbox */
-.mailbox {
-    padding-right: 220px;   
-}
-.message-row {
-    cursor: pointer;
-}
-.message-row:hover {
-    background-color: #f5f5f5; 
-}
-.message-content td {
-    padding: 0 15px 0 15px;
-}
-.message-container{
-    padding: 10px;
-}
-.mobile-message {
-    display: none;
-}
-.email-on-small {
-    display: none;
-}
-.hr-on-email {
-    display: none;
-}
-@media (max-width: 992px) {
-    .mailbox{
-        padding-right: 0;
-    }        
-}
-@media (max-width: 769px) {
-    .desktop-message {
-        display: none;
-    }
-    .mobile-message {
-        display: block;
-    }
-    .action-buttons {
-        text-align: right !important;
-    }
-}
-@media (max-width: 576px) {
-    .mailbox {
-        width: 90%;
-    }
-    .hide-on-small {
-        display: none;
-    }
-    .email-on-small {
-        display: flex;
-    }
-    .hr-on-email {
-        display: flex;
-    }
-    thead th {
-        text-align: center; 
-        padding: 10px; 
-    }
-    .message-row td {
-        text-align: center; 
-        padding: 10px;
-    }
-    .message-container .row{
-        flex-direction: column; 
-        align-items: center;
-    }
-    .center-in-mobile{
-        text-align: center !important;
-    }
-    .center-in-mobile .col-3{
-        text-align: center !important;
-    }
-    .action-buttons {
-        text-align: center !important;
-    }
-}
-</style>

@@ -41,6 +41,23 @@
     }        
 }
 /* Admin Dashboard End */
+/* Admin Inventory */
+.pantry {
+    padding-right: 220px;   
+}
+.pantry .modal {
+    margin-top: 100px;   
+    padding-right: 220px;   
+}
+@media (max-width: 992px) {
+    .pantry {
+        padding-right: 10px;
+    }   
+    .pantry .modal {
+        padding-right: 0px;   
+    }     
+}
+/* Admin Inventory End */
 /* Admin Mailbox */
 .mailbox {
     padding-right: 220px;   
@@ -69,7 +86,7 @@
 @media (max-width: 992px) {
     .mailbox{
         padding-right: 0;
-    }        
+    }    
 }
 @media (max-width: 769px) {
     .desktop-message {

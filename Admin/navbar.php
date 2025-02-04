@@ -29,7 +29,7 @@
                     <a class="nav-link text-white" href="dashboard.php">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="pantry.php">Pantry</a>
+                    <a class="nav-link text-white" href="inventory.php">Inventory</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="mailbox.php">Mailbox</a>
@@ -54,10 +54,13 @@
                     <a class="nav-link text-white" href="dashboard.php">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="pantry.php">Pantry</a>
+                    <a class="nav-link text-white" href="inventory.php">Inventory</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="mailbox.php">Mailbox</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="orders.php">Orders</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="configure.php">Configure</a>
