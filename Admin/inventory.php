@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php include('navbar.php'); ?>
-    <main class="container mt-4 pantry">
+    <main class="container pantry">
         <h2 class="mb-4">Inventory Management</h2>
         <ul class="nav nav-tabs" id="inventoryTabs" role="tablist">
             <li class="nav-item" role="presentation">
