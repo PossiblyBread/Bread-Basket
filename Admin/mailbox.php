@@ -136,6 +136,7 @@
             </div>
         </div>
     </main>
+<<<<<<< Updated upstream
     <script>
         function autofillReplyForm(email, id) {
             document.getElementById('replyToEmail').value = email;
@@ -163,5 +164,12 @@
             });
         });
     </script>
+=======
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/mailbox.js"></script>
+>>>>>>> Stashed changes
 </body>
 </html>

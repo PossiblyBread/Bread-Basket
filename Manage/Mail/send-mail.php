@@ -4,10 +4,15 @@ use PHPMailer\PHPMailer\Exception;
 
 require '../../Assets/PHPMailer/vendor/autoload.php';
 
+<<<<<<< Updated upstream
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = htmlspecialchars($_POST['email']);
     $subject = htmlspecialchars($_POST['subject']);
     $message = nl2br(htmlspecialchars($_POST['message']));
+=======
+define('SMTP_USERNAME', 'breadbasketminimart@gmail.com'); 
+define('SMTP_PASSWORD', 'ektycelwrldxccri'); 
+>>>>>>> Stashed changes
 
     $mail = new PHPMailer(true);
 

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Assets/CSS/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Bread & Basket</title>
 </head>
 <body>
@@ -32,34 +33,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col px-4">
-                    <div class="card">
-                        <img src="Assets/Images/kalihim.webp" class="card-img-top" alt="Kalihim" style="width: 100%; height: 200px; object-fit: cover;">
-                        <div class="card-body">
-                            <h5 class="card-title">Kalihim</h5>
-                            <p class="card-text">A soft, fluffy bread filled with sweet and savory filling, perfect for breakfast or snacks.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col px-4">
-                    <div class="card">
-                        <img src="Assets/Images/pandesal.jpeg" class="card-img-top" alt="Pandesal" style="width: 100%; height: 200px; object-fit: cover;">
-                        <div class="card-body">
-                            <h5 class="card-title">Pandesal</h5>
-                            <p class="card-text">A classic Filipino bread roll, slightly sweet and fluffy, enjoyed with butter or cheese.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col px-4">
-                    <div class="card">
-                        <img src="Assets/Images/spanishbread.jpg" class="card-img-top" alt="Spanish Bread" style="width: 100%; height: 200px; object-fit: cover;">
-                        <div class="card-body">
-                            <h5 class="card-title">Spanish Bread</h5>
-                            <p class="card-text">Soft bread filled with a buttery, sugary filling and a touch of cinnamon, perfect for a sweet snack.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="row row-cols-1 row-cols-md-3 g-4" id="topProducts">
+                <!-- Products will be loaded here via AJAX -->
             </div>
         </section>
         
@@ -148,4 +123,42 @@
         </section>
     </main>
     <?php include('footer.php'); ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function fetchTopProducts() {
+            $.ajax({
+                url: "Manage/User/fetch_top_products.php", // ✅ Adjust path if needed
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    let productHTML = "";
+                    data.forEach((product) => {
+                        productHTML += `
+                            <div class="col">
+                                <div class="card">
+                                    <img src="Manage/${product.product_image}" class="card-img-top" alt="${product.product_name}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${product.product_name}</h5>
+                                        <p class="card-text">${product.product_description}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    $("#topProducts").html(productHTML);
+                },
+                error: function (xhr, status, error) {
+                    console.error("AJAX Error: ", status, error);
+                },
+                complete: function () {
+                    setTimeout(fetchTopProducts, 5000); // ✅ Long Polling (every 5s)
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            fetchTopProducts(); // ✅ Start fetching on page load
+        });
+    </script>
 </body>
