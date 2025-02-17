@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Assets/CSS/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Bread & Basket</title>
 </head>
 <body>
@@ -32,41 +33,12 @@
                     </div>
                 </div>
             </div>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col px-4">
-                    <div class="card">
-                        <img src="Assets/Images/kalihim.webp" class="card-img-top" alt="Kalihim" style="width: 100%; height: 200px; object-fit: cover;">
-                        <div class="card-body">
-                            <h5 class="card-title">Kalihim</h5>
-                            <p class="card-text">A soft, fluffy bread filled with sweet and savory filling, perfect for breakfast or snacks.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col px-4">
-                    <div class="card">
-                        <img src="Assets/Images/pandesal.jpeg" class="card-img-top" alt="Pandesal" style="width: 100%; height: 200px; object-fit: cover;">
-                        <div class="card-body">
-                            <h5 class="card-title">Pandesal</h5>
-                            <p class="card-text">A classic Filipino bread roll, slightly sweet and fluffy, enjoyed with butter or cheese.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col px-4">
-                    <div class="card">
-                        <img src="Assets/Images/spanishbread.jpg" class="card-img-top" alt="Spanish Bread" style="width: 100%; height: 200px; object-fit: cover;">
-                        <div class="card-body">
-                            <h5 class="card-title">Spanish Bread</h5>
-                            <p class="card-text">Soft bread filled with a buttery, sugary filling and a touch of cinnamon, perfect for a sweet snack.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="row row-cols-1 row-cols-md-3 g-4" id="topProducts">
             </div>
         </section>
-        
         <section class="news">
-            <h3 class="news-title text-center">What's New?</h3>
+            <h3 class="news-title text-center">Check it out!</h3>
             <div class="container mt-4">
-                <!-- desktop view -->
                 <div class="row text-center g-4 d-none d-md-flex">
                     <div class="col-md-4">
                         <div class="card">
@@ -74,7 +46,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Delicious Sourdough</h5>
                                 <p class="card-text">Our signature sourdough bread, baked fresh every morning with the finest ingredients. A perfect balance of tangy and soft.</p>
-                                <a href="#" class="btn btn-primary">Order Now</a>
+                                <a href="contact.php" class="btn btn-primary">Order Now</a>
                             </div>
                         </div>
                     </div>
@@ -84,7 +56,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Flaky Croissants</h5>
                                 <p class="card-text">Buttery, flaky, and golden croissants, made with love and the highest quality ingredients. Ideal for breakfast or a quick snack!</p>
-                                <a href="#" class="btn btn-primary">View More</a>
+                                <a href="bakery.php" class="btn btn-primary">View More</a>
                             </div>
                         </div>
                     </div>
@@ -94,7 +66,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Pumpkin Spice Loaf</h5>
                                 <p class="card-text">Our seasonal pumpkin spice loaf is back! Enjoy a moist, spiced loaf perfect for autumn or any cozy day of the year.</p>
-                                <a href="#" class="btn btn-primary">Try it Now</a>
+                                <a href="bakery.php" class="btn btn-primary">Try it Now</a>
                             </div>
                         </div>
                     </div>
@@ -148,4 +120,51 @@
         </section>
     </main>
     <?php include('footer.php'); ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function fetchTopProducts() {
+            $.ajax({
+                url: "Manage/User/fetch_top_products.php", 
+                type: "GET",
+                dataType: "json",
+                success: function (response) {
+                    console.log("Response Data:", response);
+
+                    if (response.status === "success") {
+                        let productHTML = "";
+                        response.data.forEach((product) => {
+                            productHTML += `
+                                <div class="col">
+                                <h2 class="text-center fw-bold">Best Seller!</h2>
+                                    <div class="card">
+                                        <img src="Manage/${product.product_image}" class="card-img-top" alt="${product.product_name}" style="height: 200px; object-fit: cover;">
+                                        <div class="card-body">
+                                            <h3 class="card-title">${product.product_name}</h3>
+                                            <p class="card-text">${product.product_description}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                        $("#topProducts").html(productHTML);
+                    } else {
+                        console.error("Error:", response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("AJAX Error:", xhr.responseText);
+                },
+                complete: function () {
+                    setTimeout(fetchTopProducts, 5000); 
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            fetchTopProducts(); 
+        });
+    </script>
 </body>
+<style>
+</style>

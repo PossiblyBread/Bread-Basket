@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bread & Basket - Inventory</title>
+    <link rel="stylesheet" href="../Assets/CSS/admin-style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <?php include('navbar.php'); ?>
@@ -20,7 +22,6 @@
                 <button class="nav-link" id="products-tab" data-bs-toggle="tab" data-bs-target="#products" type="button" role="tab">Products</button>
             </li>
         </ul>
-        <!-- Tab Content -->
         <div class="tab-content mt-3" id="inventoryTabsContent">
             <?php include('pantry/ingredients.php'); ?>
             <?php include('pantry/tools.php'); ?>

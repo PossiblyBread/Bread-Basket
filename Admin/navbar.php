@@ -38,10 +38,10 @@
                     <a class="nav-link text-white" href="orders.php">Orders</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="configure.php">Configure</a>
+                    <a class="nav-link text-white" href="summary.php">Sales Summary</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Settings</a>
+                    <a class="nav-link text-white" href="../logout.php">Log Out</a>
                 </li>
             </ul>
         </div>
@@ -66,10 +66,7 @@
                     <a class="nav-link text-white" href="orders.php">Orders</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="configure.php">Configure</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Settings</a>
+                    <a class="nav-link text-white" href="summary.php">Sales Summary</a>
                 </li>
             </ul>
         </div>
