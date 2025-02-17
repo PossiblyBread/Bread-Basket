@@ -229,3 +229,14 @@ header {
     color: #5a3e2b;
 }
 /* faqs end */
+/* about */
+.about-section {
+    margin-top: 90px;
+    padding: 2rem 0;
+}
+.about-section img{
+    border-radius: 50%;
+    height: 250px;
+    width: auto;
+}
+/* about end */
